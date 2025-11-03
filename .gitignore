@@ -1,0 +1,9 @@
+/target
+.claude/
+*.log
+*.tmp
+.DS_Store
+**/*.wav
+**/*.mp3
+**/*.flac
+**/*.m4a
