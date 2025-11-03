@@ -74,6 +74,7 @@ oxitimer 25 5 -C 0                 # Start immediately
 ## Keyboard Controls
 
 During the timer:
+
 - **Space** - Pause/Resume
 - **Enter** - Skip to next session (plays beep sound)
 - **Q** - Quit
@@ -87,6 +88,7 @@ oxitimer init
 ```
 
 This creates the following directory structure:
+
 ```
 ~/.config/oxitimer/sounds/
 ├── work_end/     # Sound when work session ends
@@ -100,29 +102,6 @@ This creates the following directory structure:
 1. Place `.wav` or `.mp3` files in the appropriate directories
 2. Only one sound file per directory is used (first found)
 3. If no custom sound is found, a default beep will play
-
-### Converting Audio Files
-
-Convert m4a files to wav format:
-
-```bash
-ffmpeg -i input.m4a -acodec pcm_s16le -ar 44100 output.wav
-```
-
-Example for oxitimer:
-
-```bash
-# Convert and place in work_end directory
-ffmpeg -i work_sound.m4a -acodec pcm_s16le -ar 44100 ~/.config/oxitimer/sounds/work_end/work.wav
-```
-
-Batch conversion:
-
-```bash
-for file in *.m4a; do
-    ffmpeg -i "$file" -acodec pcm_s16le -ar 44100 "${file%.m4a}.wav"
-done
-```
 
 ## Sound Behavior
 
@@ -162,6 +141,7 @@ oxitimer -w 1 -b 0.25 -t hour
 ## Display Information
 
 The terminal UI shows:
+
 - **Session type** - Work or Break (with color coding)
 - **Timer** - Large 7-segment style display (MM:SS)
 - **Status** - Running, Paused, or Completed
@@ -208,8 +188,24 @@ The project follows a layered architecture:
 
 ## License
 
-[Add your license here]
+MIT License
 
-## Contributing
+Copyright (c) 2025
 
-[Add contribution guidelines here]
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
